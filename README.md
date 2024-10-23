@@ -1,27 +1,53 @@
-# FORMATIVE ASSIGNMENT
+# Heart Disease Analysis
 
-## Heart Disease Dataset Analysis
+This repository contains an analysis of heart disease data using Gaussian Mixture Models (GMM) for clustering. The goal of the analysis is to identify distinct clusters of individuals based on several health-related features and to understand the associated heart disease risk factors in each group.
 
+## Repository Structure
 
-I am a data scientist working for a healthcare company, and my task is to analyze a dataset of medical records to identify patients with high risk of developing heart disease. I will use unsupervised learning techniques to cluster patients based on their medical history and identify risk factors associated with heart disease.
+- **data/**: Contains the dataset in CSV format (not pushed to the repository due to size constraints).
+- **model.ipynb**: The Jupyter notebook where the analysis was conducted, including data preprocessing, model training, and clustering analysis.
+- **README.md**: This file, providing an overview of the repository and the analysis.
+- **.gitignore**: Specifies files and directories that should be ignored by Git, such as `.venv` and large dataset files.
 
-I will be using the heart disease dataset from the UCI Machine Learning Repository.It should contain 303 instances with 14 attributes (including age, sex, chest pain type, blood pressure, serum cholesterol, and target variable indicating the presence or absence of heart disease)
+## Analysis Overview
 
-My task is to perform the following steps:
+The dataset contains various health attributes, such as age, cholesterol levels, maximum heart rate, and ST depression, which are commonly used to assess heart disease risk.
 
-- Load the heart disease dataset into a pandas data frame and perform exploratory data analysis (EDA) to gain insights into the dataset.
-- Preprocess the dataset by handling missing values, scaling the features, and encoding categorical variables.
-Apply
-- K-means clustering
-- Optimize for the number of ks in k means clusterings
- Hierarchical clustering, and
-- DBSCAN clustering
- to the preprocessed dataset to group patients into clusters based on their medical history.
+### Key Steps in the Analysis:
+1. **Data Preprocessing**: 
+   - Cleaned and prepared the data for clustering, including handling missing values and scaling features.
+   
+2. **Dimensionality Reduction**: 
+   - Used Principal Component Analysis (PCA) and t-SNE for visualizing the data in lower dimensions while preserving important patterns.
+   
+3. **Clustering Using Gaussian Mixture Models (GMM)**: 
+   - Applied GMM to segment individuals into three clusters based on their health features.
+   
+4. **Cluster Interpretation**:
+   - Analyzed the characteristics of each cluster to understand the differences in heart disease risk. Cluster 0 represents a younger, healthier population; Cluster 1 shows the highest risk of heart disease, and Cluster 2 has moderate risks.
 
+### Results Summary:
+- **Cluster 0**: Healthiest group, younger individuals with low cholesterol and no signs of heart disease.
+- **Cluster 1**: Highest risk group, older individuals with elevated cholesterol, ischemia (ST depression), and a high occurrence of heart disease.
+- **Cluster 2**: Intermediate risk group with moderate cholesterol and heart disease risk.
 
-Use principal component analysis (PCA) and t-SNE to visualize the clusters and gain insights into the relationships between the variables. I must state conclusions drawn from this step
+## Requirements
+- Python 3.x
+- Jupyter Notebook
+- Required Python libraries: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`
 
-Use Gaussian mixture models (GMMs) to identify risk factors associated with heart disease.
-Evaluate the clustering performance using metrics such as silhouette score and Davies-Bouldin index.
-Compare the performance of different clustering algorithms and choose the one that gives the best results.
-NB - there must be a text in the notebook that Determines which clustering algorithm works best and the reasons
+> Note: The virtual environment (`.venv`) and dataset are not included in the repository due to size constraints.
+
+## How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/heart-disease-analysis.git
+   ```
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Open `model.ipynb` in Jupyter Notebook to explore the analysis.
+
+## Conclusion
+This analysis helps to categorize individuals into distinct groups based on their health features and assess their relative risk for heart disease. The GMM clustering provides a meaningful way to interpret and potentially target health interventions for different population segments.
